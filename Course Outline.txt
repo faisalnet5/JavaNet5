@@ -1,0 +1,45 @@
+					 
+					 JavaNet5: Core Java Programming Exercises
+
+==========================================================================================
+1) 	LessonOne			: 	Hello World
+2)	LessonTwo			:	Classes & Objects (Package, Inheritance)
+3)	LessonThree			:	Methods & Parameters (Exp: toString, equals)
+4)	LessonFour			:	Getter & Setter Methods (this)
+5)	LessonFive			:	Variables- Static & Final
+6)	LessonSix			:	Pass-by-reference vs Pass-by-value
+							Overloading vs Overriding
+7)	LessonSeven			:	Public, Private, Protected
+8)	LessonEight			:	Constructors
+9)	LessonNine			:	Abstract & Interface
+10)	LessonTen			:	Encapsulation
+11)	LessonEleven		:	Polymorphism
+12)	LessonTwelve		:	Structural Programming 1: 	Conditions
+13)	LessonThirteen		:	Structural Programming 2:	While Loop
+14)	LessonFourteen		:	Structural Programming 3:	Do..While Loop
+15)	LessonFifteen		:	Structural Programming 4:	For Loop
+16)	LessonSixteen		:	Structural Programming 5:	Array
+17)	LessonSeventeen		:	Structural Programming 6:	Multi-dimensional Array
+18)	LessonEighteen		:	Structural Programming 7:	ArrayList
+19)	LessonNighteen		:	Structural Programming 8:	Enum Types
+20)	LessonTwenty		:	String Builder & String Formatting
+21)	LessonTwentyOne		:	Casting (Upcasting vs Downcasting)
+22)	LessonTwentyTwo		: 1	Generics & Wildcards
+23)	LessonTwentyThree	:	Handling Exceptions/Multiple Exceptions/Multiple Catch
+24)	LessonTwentyFour	:	Try-and-catch/Try-with-resources
+25)	LessonTwentyFive	:	Getting User Input
+26)	LessonTwentySix		:	Reading Files using Scanner & FileReader
+27)	LessonTwentySeven	:	Creating and Writing Text Files
+28)	LessonTwentyEight	: 2	Recursion
+29)	LessonTwentyNine	: 3	Serialization
+30)	LessonThirty		:	Data Structure 1: 	Linked List (Sorting, Natural Order)
+31)	LessonThirtyOne		:	Data Structure 2:	HashMap (Keys & Values)
+32)	LessonThirtyTwo		:	Data Structure 3:	Sorting Map
+33)	LessonThirtyThree	:	Data Structure 4:	Set (Sets & Keys)
+34)	LessonThirtyFour	:	Data Structure 5:	Queues
+35)	LessonThirtyFive	:	Data Structure 6:	Iterators
+36)	LessonThirtySix		: 4	Lambda Expressions
+
+Note: 1,2...4: We will be covering those Lessons in near future insaAllah
+
+Updated on: March, 14th-2015
