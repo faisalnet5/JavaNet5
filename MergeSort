@@ -1,0 +1,102 @@
+/*MergeSort
+------------------------
+MergerSort also using Divide and Conquer algorithm using recursive technique. It is fast and stable sorting algorithm
+ 
+Complexity: Worst case O(n*log(n)) 
+
+*/
+
+package com.personal.javanet5;
+
+public class MergeSort {
+	
+	int[] array;
+	int[] tempMergArr;
+	int length;
+	
+	void sort(int[] inputArr) {
+		if(inputArr == null || inputArr.length ==0){
+			return;
+		}
+		
+		this.array = inputArr;
+		this.length = inputArr.length;
+		this.tempMergArr = new int[length];
+		
+		mergeSort(0, length-1);		//Calling MergeSorting Method
+	}
+	
+	//MergeSort Implementation
+	void mergeSort(int lowerIndex, int higherIndex){
+		
+		int passLowerIndex = lowerIndex;
+		int passHeigherIndex = higherIndex;
+		
+		// calculate middle number
+		int passMiddle = passLowerIndex + (passHeigherIndex - passLowerIndex) / 2;
+		
+		if (passLowerIndex < passHeigherIndex) {
+
+			// Recursive Call: Below step sorts the left side of the array
+			mergeSort(passLowerIndex, passMiddle);
+			
+			// Recursive Call: Below step sorts the right side of the array
+			mergeSort(passMiddle + 1, passHeigherIndex);
+			
+			// Now merge both sides
+			exchange(passLowerIndex, passMiddle, passHeigherIndex);
+		}
+	}
+	
+	void exchange(int passLowerIndex, int passMiddle, int passHeigherIndex) {
+		
+		//Populating the tempMerfArr
+		for (int i = passLowerIndex; i <= passHeigherIndex; i++) {
+            tempMergArr[i] = array[i];
+        }
+		
+		int i = passLowerIndex;
+        int j = passMiddle + 1;
+        int k = passLowerIndex;
+		
+		while (i <= passMiddle && j <= passHeigherIndex) {
+            if (tempMergArr[i] <= tempMergArr[j]) {
+                array[k] = tempMergArr[i];
+                i++;
+            } else {
+                array[k] = tempMergArr[j];
+                j++;
+            }
+            k++;
+        }
+		while (i <= passMiddle) {
+            array[k] = tempMergArr[i];
+            k++;
+            i++;
+        }
+	}
+
+	public static void main(String[] args) {
+		MergeSort sorter = new MergeSort();
+		
+		int[] input = {4,3,2,1};
+		
+		sorter.sort(input);   //Remove the instance and see what it is saying :)
+		
+		for(int i: input){
+			System.out.print(i);
+			System.out.print(" ");
+		}
+	}
+}
+
+/*	Steps to implement Merge Sort:
+-------------------------------------------------------------
+1) Divide the unsorted array into n partitions, each partition contains 1 element. Here the one element is considered as sorted.
+2) Repeatedly merge partitioned units to produce new sublists until there is only 1 sublist remaining. This will be the sorted list at the end.
+
+
+Source: http://www.java2novice.com/java-sorting-algorithms/merge-sort/
+*/
+
+
