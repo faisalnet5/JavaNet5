@@ -1,0 +1,59 @@
+/*InsertionSort
+------------------------
+InsertionSort is the fastest algorithms for sorting very small arrays but much less efficient on large lists than other sort algorithms. 
+ 
+Complexity: Worst case O(n^2) quadratic running time | Best case O(n)
+
+*/
+
+package com.personal.javanet5;
+
+public class InsertionSort {
+	
+	void sort(int[] inputArr) {
+		if(inputArr == null || inputArr.length ==0){
+			return;
+		}
+
+		insertionSort(inputArr);	//Calling InsertionSorting Method
+	}
+	
+	void insertionSort(int[] inputArr) {
+		
+		for (int i = 1; i < inputArr.length; i++) {   //Start with second position (i = 1)
+            for(int j = i ; j > 0 ; j--){
+                if(inputArr[j] < inputArr[j-1]){
+                    int temp = inputArr[j];
+                    inputArr[j] = inputArr[j-1];
+                    inputArr[j-1] = temp;
+                }
+            }
+        }
+	}
+
+	public static void main(String[] args) {
+		
+		InsertionSort sorter = new InsertionSort();
+
+		int[] input = {4,3,2,1};
+		
+		sorter.sort(input);   //Remove the instance and see what it is saying :)
+		
+		for(int i: input){
+			System.out.print(i);
+			System.out.print(" ");
+		}
+	}
+
+}
+
+/*	Steps to implement Insertion Sort:
+-------------------------------------------------------------
+1) Insertion sort iterates through the list by consuming one input element at each repetition, and growing a sorted output list. 
+2) On a repetition, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, 
+   and inserts it there. It repeats until no input elements remain. 
+3) During each iteration, the first remaining element of the input is only compared with the right-most element of the sorted subsection of the array.
+
+Source: http://www.java2novice.com/java-sorting-algorithms/insertion-sort/
+*/
+
