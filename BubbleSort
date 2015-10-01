@@ -1,0 +1,74 @@
+/*BubbleSort
+------------------------
+BubbleSort also called sinking sort/comparison sort algorithm. When input array (n) is big, don't use this sorting algorithm. 
+Compare to Insertion Sort, this BubbleSort is way slow
+ 
+Complexity: Worst case and Average case both O(n^2) | Best case O(n)
+
+*/
+
+package com.personal.javanet5;
+
+public class BubbleSort {
+	
+	private void sort(int[] inputArr) {
+		if(inputArr == null || inputArr.length ==0){
+			return;
+		}
+
+		bubbleSort(inputArr);			//Calling BubbleSorting Method
+	}
+	
+	private void bubbleSort(int[] inputArr) {
+		int n = inputArr.length;
+        int pointer;
+        
+       //After Step-2 and 3, at least 1 item is sorted and that particular one we will not count again
+        for (int m = n; m >= 0; m--) {			                //This FOR loop is helping us to do so
+        	
+        	// Step-2: First Check two adjacent locations and think whether we need to swap or not
+            for (int first_location = 0; first_location < n - 1; first_location++) {
+            	pointer = first_location + 1;
+                
+                // Step-3: If first_location > first_pointer, then we need swapping
+                if (inputArr[first_location] > inputArr[pointer]) {
+                	exchange(first_location, pointer, inputArr);
+                }
+            }
+           
+        }
+	}
+	
+	void exchange(int i, int j, int[] inputArr) {
+
+		int temp = inputArr[i];
+		inputArr[i] = inputArr[j];
+		inputArr[j] = temp;
+	}
+	
+	public static void main(String[] args) {
+		
+		BubbleSort sorter = new BubbleSort();
+
+		int[] input = {4,3,2,1};	// Given Input
+		
+		sorter.sort(input);   		// Step-1: Calling Bubble Sort Function
+									// Remove the instance and see what it is saying :)
+		
+		for(int i: input){
+			System.out.print(i);
+			System.out.print(" ");
+		}
+	}
+}
+
+/*	Steps to implement BubbleSort Sort:
+-------------------------------------------------------------
+1) Start from your left or right, compare each pair of adjacent items & swapping them if they are in wrong order. 
+2) The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted.
+3) In Bubble Sort after inner FOR loop, we are thinking the very last item is sorted (as largest). Therefore, by outer FOR loop 
+   we are ignoring that sorted item and calling Bubble Sort function on the remaining elements.
+
+Source: http://www.java2novice.com/java-sorting-algorithms/bubble-sort/
+*/
+
