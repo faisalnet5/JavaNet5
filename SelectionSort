@@ -1,0 +1,63 @@
+/*SelectionSort
+------------------------
+SelectionSort is a combination of searching and sorting. The number of times the sort passes through the array is one less than the number 
+of items in the array.
+ 
+Complexity: Worst case O(n^2) quadratic running time
+
+*/
+
+package com.personal.javanet5;
+
+public class SelectionSort {
+	
+	void sort(int[] inputArr) {
+		
+		if(inputArr == null || inputArr.length ==0){
+			return;
+		}
+
+		selectionSort(inputArr);	//Calling SelectionSorting Method
+	}
+	
+	void selectionSort(int[] inputArr) {
+		
+		for (int i = 0; i < inputArr.length - 1; i++)
+        {
+            int index = i;
+            
+            for (int j = i + 1; j < inputArr.length; j++){
+            	if (inputArr[j] < inputArr[index]){
+            		index = j;
+            	}
+                    
+            }
+              
+            int temp_smallernumber = inputArr[index]; 
+            inputArr[index] = inputArr[i];
+            inputArr[i] = temp_smallernumber;
+        }
+	}
+
+	public static void main(String[] args) {
+		
+		SelectionSort sorter = new SelectionSort();
+
+		int[] input = {4,3,2,1};
+		
+		sorter.sort(input);   //Remove the instance and see what it is saying :)
+		
+		for(int i: input){
+			System.out.print(i);
+			System.out.print(" ");
+		}
+	}
+}
+
+/*	Steps to implement Selection Sort:
+-------------------------------------------------------------
+1) In the Selection sort, the inner loop finds the next smallest (or largest) value and the outer loop places that value into its proper location.
+2) Selecting the lowest element requires scanning all n elements (this takes n-1 comparisons) and then swapping it into the first position.
+
+Source: http://www.java2novice.com/java-sorting-algorithms/insertion-sort/
+*/
