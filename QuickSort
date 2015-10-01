@@ -1,0 +1,94 @@
+/*QuickSort
+------------------------
+Also known as partition-exchange sort. One of the fast sorting algorithms. Using Divide and Conquer algorithm using recursive technique.
+ 
+Complexity: Average case O(n*log(n)) | Worst case O(n^2)
+
+*/
+
+package com.personal.javanet5;
+
+public class QuickSort {
+	
+	int[] array;
+	int   length;
+	
+	void sort(int[] inputArr) {
+		if(inputArr == null || inputArr.length ==0){
+			return;
+		}
+		
+		this.array = inputArr;
+		this.length = inputArr.length;
+		
+		quickSort(0, length-1);		//Calling QuickSorting Method
+	}
+	
+	//QuickSort Implementation
+	void quickSort(int lowerIndex, int higherIndex){
+		
+		int passLowerIndex = lowerIndex;
+		int passHeigherIndex = higherIndex;
+		
+		// calculate pivot number
+		int pivot = array[passLowerIndex+(passHeigherIndex-passLowerIndex)/2];
+		
+		// Divide into two arrays
+		if (passLowerIndex <= passHeigherIndex){
+			
+			//If passLowerIndex is smaller or equal to pivot then move the passLowerIndex on your right by 1
+			while (array[passLowerIndex] < pivot){
+				passLowerIndex++;
+			}
+			
+			//If passHeigherIndex is greater or equal to pivot then move the passHeigherIndex on your left by 1
+ 			while(array[passHeigherIndex] > pivot){
+				passHeigherIndex--;
+			}
+			
+			if(passLowerIndex <= passHeigherIndex){
+				exchange(passLowerIndex, passHeigherIndex);
+				passLowerIndex++;
+				passHeigherIndex--;				
+			}			
+		}
+		
+		// call quickSort() method recursively
+        if (lowerIndex < passHeigherIndex)
+            quickSort(lowerIndex, passHeigherIndex);
+        if (passLowerIndex < higherIndex)
+            quickSort(passLowerIndex, higherIndex);
+	}
+	
+	void exchange(int passLowerIndex, int passHeigherIndex) {
+		int temp = array[passLowerIndex];
+		array[passLowerIndex] = array[passHeigherIndex];
+		array[passHeigherIndex] = temp;		
+		
+	}
+
+	public static void main(String[] args) {
+		QuickSort sorter = new QuickSort();
+		
+		int[] input = {4,3,2,1};
+		
+		sorter.sort(input);   //Remove the instance and see what it is saying :)
+		
+		for(int i: input){
+			System.out.print(i);
+			System.out.print(" ");
+		}
+	}
+}
+
+/*	Steps to implement Quick sort:
+-------------------------------------------------------------
+1) Choose an element, called pivot, from the list. Generally pivot can be the middle index element.
+2) Reorder the list so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). 
+   After this partitioning, the pivot is in its final position. This is called the partition operation.
+3) Recursively apply the above steps to the sub-list of elements with smaller values and separately the sub-list of elements with greater values.
+
+
+Source: http://www.java2novice.com/java-sorting-algorithms/quick-sort/
+*/
+
