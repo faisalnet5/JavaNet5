@@ -6,7 +6,7 @@ class ObjectA{
 	String greeting = "Welcome";
 	
 	//Element-2: Methods(s)
-	void objectFunction(){
+	void objectFunction(){   //Add 'final' infront of void then see...
 		System.out.println("Hello from Object A");
 	}
 }
